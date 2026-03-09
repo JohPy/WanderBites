@@ -23,9 +23,23 @@ Japan - Tea Ceremony Chapter
 
 Source: https://oryoki.de/blog/matcha-tea-preperation
 
+China - Char Siu Chapter
+- Utensils needed: Bowl, Oven, (Wooden) Spoon (for stirring), Table Spoon, Tea Spoon, Plate
+- Ingredients needed: Pork, Honey, Salt, Sesame Oil, Chinese Rice Wine, Garlic, Oyster Sauce, HoiSin Sauce, Spices (Fennel, Cinnamon, Star Anise, Szechuan Pepper),  OPTIONAL: Rice, Pak Choi
+- Step 1: The player must mix the ingredients (except for the pork) in a bowl in the correctly measured amount
+- Step 2: Marinate the meat in the sauce for 24 hours
+- Step 3: Heat up oven to 200°C
+- Step 4: Bake meat for 30 min, turn meat and coat with marinade every few minutes.
+- Step 5: Cook rice and wash pak choi
+- Step 6: Turn up oven temperature to 230°C for 10 mins
+- Step 7: Take meat out of oven and cut it into slices
+- Step 8: Put rice, pak choi and meat on the plate
+
+- TODO: Simplify or reduce steps
+
 4. Cultural Context System
 - Each step must trigger a short text or audio explaining cultural meaning
-- Each chapter must end with a completion screen optoinally explaining the cultural role of the dish and must provide a real life recipe.
+- Each chapter must end with a completion screen optionally explaining the cultural role of the dish and must provide a real life recipe.
 
 5. User Interface
 - The game must provide a consistent UI across chapters (but can have differences in colour for example to match the "vibe")
