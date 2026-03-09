@@ -37,6 +37,8 @@ China - Char Siu Chapter
 
 - TODO: Simplify or reduce steps
 
+Source: Personal recipe from a friend
+
 4. Cultural Context System
 - Each step must trigger a short text or audio explaining cultural meaning
 - Each chapter must end with a completion screen optionally explaining the cultural role of the dish and must provide a real life recipe.
