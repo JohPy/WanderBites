@@ -24,7 +24,7 @@ Japan - Tea Ceremony Chapter
 Source: https://oryoki.de/blog/matcha-tea-preperation
 
 China - Char Siu Chapter
-- Utensils needed: Bowl, Oven, (Wooden) Spoon (for stirring), Table Spoon, Tea Spoon, Plate
+- Utensils needed: Bowl, Oven, (Wooden) Spoon (for stirring), Table Spoon, Tea Spoon, Plate, Knife, Roasting Pan
 - Ingredients needed: Pork, Honey, Salt, Sesame Oil, Chinese Rice Wine, Garlic, Oyster Sauce, HoiSin Sauce, Spices (Fennel, Cinnamon, Star Anise, Szechuan Pepper),  OPTIONAL: Rice, Pak Choi
 - Step 1: The player must mix the ingredients (except for the pork) in a bowl in the correctly measured amount
 - Step 2: Marinate the meat in the sauce for 24 hours
