@@ -1,11 +1,39 @@
 {
     "chapterId" : "JP",
     "activeStep" : 0,
-    "steps" : {
-        "0" : "Heat Water",
-        "1" : "Add Matcha",
-        "2" : "Add Water",
-        "3" : "Whisk",
-        "4" : "Enjoy"
+    "steps": [
+    {
+      "id": 0,
+      "action": "click",
+      "target": "kettle",
+      "uiText": "Heat Water"
+    },
+    {
+      "id": 1,
+      "action": "drag",
+      "target": "matcha",
+      "tool": "scoop",
+      "uiText": "Add Matcha"
+    },
+    {
+      "id": 2,
+      "action": "drag",
+      "target": "water",
+      "source": "kettle",
+      "uiText": "Add Water"
+    },
+    {
+      "id": 3,
+      "action": "drag",
+      "tool": "whisk",
+      "target": "bowl",
+      "uiText": "Whisk"
+    },
+    {
+      "id": 4,
+      "action": "click",
+      "target": "bowl",
+      "uiText": "Enjoy"
     }
+  ]
 }
