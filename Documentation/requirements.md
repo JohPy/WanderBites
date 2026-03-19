@@ -15,10 +15,10 @@
 
 Japan - Tea Ceremony Chapter
 - Utensils needed: Matcha Bowl, Bamboo Whisk, Bamboo Scoop/Teaspoon, Fine Mesh Sieve, Matcha Powder, Kettle
-- Step 1: The player must boil water in the kettle and then let the water reach a temp of 75-85°C (todo: leave out or think of how to visualize this)
-- Step 2: The player must measure 1/2 teaspoon/1 bamboo scoop of matcha powder and place it in the sieve, hold the sieve over the matcha bowl and use a spoon to sift it through the sieve (todo: maybe simplify)
-- Step 3: The player must pour 60ml of the water into the matcha bowl, briefly dip the bamboo whisk in warm water to moisten and soften the bristles, whisk the matcha powder and water with the bamboo whisk in quick, even motions using a zigzag (W) motion
-- Step 4: Fill the bowl with more water (60-90ml depending on desired stength), then wisk more in a W motion until a frothy surface builds (ui tip: wish should not touch bottom of the bowl to avoid damaging the bistles)
+- Step 1: Heat Water - The player must click the kettle and then wait for the visual cue of it being done (visual cue: green outline and/or steam above kettle) (optionally show UI tip that temp is important: 75-85°C, otherwise matcha burns)
+- Step 2: Add Matcha - Player must drag Scoop -> Matcha -> Sieve and then drag Sieve with Matcha -> Bowl (for each mini-step work with outlines?)
+- Step 3: Add Water - Player must drag Kettle -> Bowl (visual cue: bowl sprite change from empty to filled with water and/or green outline)
+- Step 4: Whisk - The player must drag Whisk -> Bowl and then should do W-motion (visual cue: first the water turns green, then if the W motion is done, foam appears on the top) (ui tip: wisk should not touch bottom of the bowl to avoid damaging the bistles)
 - Step 5: Enjoy matcha before it loses temp
 
 Source: https://oryoki.de/blog/matcha-tea-preperation
