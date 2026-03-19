@@ -1,0 +1,11 @@
+{
+    "chapterId" : "JP",
+    "activeStep" : 0,
+    "steps" : {
+        "0" : "Heat Water",
+        "1" : "Add Matcha",
+        "2" : "Add Water",
+        "3" : "Whisk",
+        "4" : "Enjoy"
+    }
+}
