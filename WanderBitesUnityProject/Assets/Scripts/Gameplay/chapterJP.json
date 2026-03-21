@@ -5,34 +5,48 @@
     {
       "id": 0,
       "action": "click",
-      "target": "kettle",
+      "source": "kettle",
       "uiText": "Heat Water"
     },
     {
       "id": 1,
       "action": "drag",
+      "source": "scoop",
       "target": "matcha",
-      "tool": "scoop",
       "uiText": "Add Matcha"
     },
     {
       "id": 2,
       "action": "drag",
-      "target": "water",
-      "source": "kettle",
-      "uiText": "Add Water"
+      "source": "matcha",
+      "target": "sieve",
+      "uiText": "Add Matcha"
     },
     {
       "id": 3,
       "action": "drag",
-      "tool": "whisk",
+      "source": "sieve",
+      "target": "bowl",
+      "uiText": "Add Matcha"
+    },
+    {
+      "id": 4,
+      "action": "drag",
+      "source": "kettle",
+      "target": "bowl",      
+      "uiText": "Add Water"
+    },
+    {
+      "id": 5,
+      "action": "drag",
+      "source": "whisk",
       "target": "bowl",
       "uiText": "Whisk"
     },
     {
-      "id": 4,
+      "id": 6,
       "action": "click",
-      "target": "bowl",
+      "source": "bowl",
       "uiText": "Enjoy"
     }
   ]
