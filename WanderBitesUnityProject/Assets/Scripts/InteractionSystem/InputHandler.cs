@@ -21,7 +21,7 @@ public class InputHandler : MonoBehaviour
         Debug.Log(rayHit.collider.gameObject.name);
         #endif
 
-        var interactable = rayHit.collider.GetComponent<IInteractable>();
+        var interactable = rayHit.collider.GetComponent<ClickableObject>();
         if (interactable == null) return;
         interactable.Interact();
     }
