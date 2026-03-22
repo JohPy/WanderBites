@@ -1,12 +1,29 @@
 {
     "chapterId" : "JP",
     "activeStep" : 0,
+    "startIngredients" : [
+        "kettle",
+        "matcha",
+        "scoop",
+        "whisk",
+        "bowl"
+    ],
     "steps": [
     {
       "id": 0,
       "action": "click",
       "target": "kettle",
-      "uiText": "Heat Water"
+      "uiText": "Heat Water",
+      "effects" : [
+          {
+            "type" : "spawn",
+            "item" : "kettle with steam"
+          },
+          {
+            "type" : "destroy",
+            "item" : "kettle"
+          }
+      ]
     },
     {
       "id": 1,
