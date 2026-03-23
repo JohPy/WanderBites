@@ -3,6 +3,7 @@ using TMPro;
 using JetBrains.Annotations;
 using UnityEngine.UI;
 using Unity.VisualScripting;
+using System.Collections;
 
 public class GUIController : MonoBehaviour
 {
@@ -25,6 +26,14 @@ public class GUIController : MonoBehaviour
         endscreenCanvas.gameObject.SetActive(false);
         recipe = recipeData;
         PopulateRecipeGUI();
+
+        StartCoroutine(ApplyInitialFormatting());
+    }
+
+    IEnumerator ApplyInitialFormatting()
+    {
+        yield return null; // wait one frame to ensure all UI elements are instantiated
+
         FormatActiveStep(activeStepIndex);
     }
 
@@ -32,9 +41,7 @@ public class GUIController : MonoBehaviour
     {
         if (newActiveStepIndex >= recipe.steps.Count)
         {
-            Debug.Log("Recipe Complete");
             TriggerEndscreen();
-            return;
         } else if (newActiveStepIndex != activeStepIndex)
         {
             FormatCompletedStep(activeStepIndex);
@@ -45,7 +52,7 @@ public class GUIController : MonoBehaviour
 
     void PopulateRecipeGUI()
     {
-         foreach (Transform child in recipeListBackground.transform)
+        foreach (Transform child in recipeListBackground.transform)
         {
             GameObject.Destroy(child.gameObject);
         }
@@ -97,18 +104,19 @@ public class GUIController : MonoBehaviour
 
     void FormatActiveStep(int stepIndex)
     {
-        Transform stepText = recipeListBackground.transform.GetChild(stepIndex);
+        int childIndex = stepIndex + 1; // +1 to account for title at index 0
+        Transform stepText = recipeListBackground.transform.GetChild(childIndex);
         stepText.gameObject.GetComponent<TextMeshProUGUI>().fontStyle = FontStyles.Bold;
         stepText.gameObject.GetComponent<TextMeshProUGUI>().color = Color.blueViolet;
     }
 
     void FormatCompletedStep(int stepIndex)
     {
-        if (stepIndex == 0) return; // Skip formatting for title
+        int childIndex = stepIndex + 1; // +1 to account for title at index 0
 
-        Transform stepText = recipeListBackground.transform.GetChild(stepIndex);
+        Transform stepText = recipeListBackground.transform.GetChild(childIndex);
         stepText.gameObject.GetComponent<TextMeshProUGUI>().fontStyle = FontStyles.Normal;
-        stepText.gameObject.GetComponent<TextMeshProUGUI>().color = Color.grey;
+        stepText.gameObject.GetComponent<TextMeshProUGUI>().color = Color.black;
         stepText.gameObject.GetComponent<TextMeshProUGUI>().fontStyle = FontStyles.Strikethrough;
     }
 
@@ -116,10 +124,4 @@ public class GUIController : MonoBehaviour
     {
         endscreenCanvas.gameObject.SetActive(true);
     }
-
-    /* void Update()
-    {
-        FormatActiveStep(2);
-        FormatCompletedStep(1);
-    } */
 }
