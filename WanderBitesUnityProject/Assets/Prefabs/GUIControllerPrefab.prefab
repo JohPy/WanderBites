@@ -1,0 +1,55 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3772414742528848247
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6249324533906631290}
+  - component: {fileID: 5145031594992203819}
+  m_Layer: 0
+  m_Name: GUIControllerPrefab
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6249324533906631290
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3772414742528848247}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -3.40615, y: -1.27449, z: 1.63525}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5145031594992203819
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3772414742528848247}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18874ac4caa35fb4bae5bf559e72c5e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GUIController
+  recipeListBackground: {fileID: 0}
+  recipeStepPrefab: {fileID: 6731905841284940666, guid: b36f20f1ab5ee62499cd6fc1ba93bb4c, type: 3}
+  recipeBackgroundTiny: {fileID: 5433495473686536652, guid: 01949f555d9645648b142bea7ed23a3e, type: 3}
+  recipeBackgroundShort: {fileID: 7411152074183463321, guid: 47249f7220e44894696eac51ed4bc45f, type: 3}
+  recipeBackgroundMedium: {fileID: 4627301289655075576, guid: cecb113584927df43ae48dfa4f7866b3, type: 3}
+  recipeBackgroundLong: {fileID: -244679925577657636, guid: 92d912bd3c719484198c69e002a70149, type: 3}
+  recipeBackgroundExtraLong: {fileID: 118994372846119696, guid: 462c51603300ad24581bac2d5950dc75, type: 3}
+  recipeBackgroundLongest: {fileID: -6076416602597315541, guid: a4c91cce7e90dc9469264079e4620084, type: 3}
+  endscreenCanvas: {fileID: 0}
