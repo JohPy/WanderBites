@@ -13,12 +13,20 @@ public class GameplayController : MonoBehaviour
     [SerializeField]
     public GameObject parentOfSceneObjects;
 
-    private Dictionary<string, GameObject> objectMap;
+    private Dictionary<int, IInteractable> objectMap;
 
     void Awake()
     {
         LoadRecipe();
         BuildObjectMap();
+    }
+
+    void Start()
+    {
+        if (objectMap.TryGetValue(0, out var interactable))
+        {
+            interactable.EnableInteractionForCurrentStep();
+        }
     }
 
     void LoadRecipe()
@@ -28,12 +36,14 @@ public class GameplayController : MonoBehaviour
 
     void BuildObjectMap()
     {
-        objectMap = new Dictionary<string, GameObject>();
+        objectMap = new Dictionary<int, IInteractable>();
 
         foreach (Transform child in parentOfSceneObjects.transform)
         {
-            GameObject obj = child.gameObject;
-            objectMap[obj.name.ToLower()] = obj;
+            foreach (var interactable in child.GetComponents<IInteractable>())
+            {
+                objectMap[interactable.GetStep()] = interactable;
+            }
         }
     }
 
@@ -49,6 +59,18 @@ public class GameplayController : MonoBehaviour
         if (activeStepIndex >= recipe.steps.Count)
         {
             Debug.Log("Recipe Complete");
+            return;
         }
+
+        if (objectMap.TryGetValue(activeStepIndex, out var nextInteractable))
+        {
+            nextInteractable.EnableInteractionForCurrentStep();
+        }
+    }
+
+    public void OnInteractionCompleted(IInteractable interactable)
+    {
+        Debug.Log($"Interaction completed for step {interactable.GetStep()}");
+        CompleteStep();
     }
 }

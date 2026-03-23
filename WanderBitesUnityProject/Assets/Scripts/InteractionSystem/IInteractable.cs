@@ -10,5 +10,10 @@ public enum InteractionState
 public interface IInteractable
 {
     public bool EnableInteractionForCurrentStep();
+
     public bool CanInteract();
+
+    public int GetStep();
+
+    public InteractionMode GetInteractionMode();
 }

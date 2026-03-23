@@ -341,6 +341,7 @@ GameObject:
   m_Component:
   - component: {fileID: 548738621}
   - component: {fileID: 548738622}
+  - component: {fileID: 548738624}
   - component: {fileID: 548738623}
   m_Layer: 0
   m_Name: Scoop
@@ -452,7 +453,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -468,6 +469,23 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 8.66, y: 19.5}
   m_EdgeRadius: 0
+--- !u!114 &548738624
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 548738620}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36a5e0a1245f7d64eb65cf9444a1ba87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DraggableObject
+  _step: 1
+  target: {fileID: 1649971032}
+  _dropAlignDistance: 1
+  _interactedSprite: {fileID: -1665114016725892720, guid: 8403fa3b694bb1d489386b3fe9009c3d, type: 3}
+  _completedSprite: {fileID: -1665114016725892720, guid: 8403fa3b694bb1d489386b3fe9009c3d, type: 3}
 --- !u!1 &924887103
 GameObject:
   m_ObjectHideFlags: 0
@@ -580,6 +598,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1619198338}
   - component: {fileID: 1619198339}
+  - component: {fileID: 1619198341}
+  - component: {fileID: 1619198342}
   - component: {fileID: 1619198340}
   m_Layer: 0
   m_Name: Kettle
@@ -707,6 +727,39 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 18.18, y: 15.2}
   m_EdgeRadius: 0
+--- !u!114 &1619198341
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1619198337}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50363dd98b4f03544a2ff5c9e7397446, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ClickableObject
+  _step: 0
+  _interactDuration: 5
+  _interactedSprite: {fileID: -8472049598239381741, guid: e431c647bcf49b747986324ddee3d553, type: 3}
+  _completedSprite: {fileID: -8472049598239381741, guid: e431c647bcf49b747986324ddee3d553, type: 3}
+--- !u!114 &1619198342
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1619198337}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36a5e0a1245f7d64eb65cf9444a1ba87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DraggableObject
+  _step: 4
+  target: {fileID: 1952643862}
+  _dropAlignDistance: 1
+  _interactedSprite: {fileID: -8472049598239381741, guid: e431c647bcf49b747986324ddee3d553, type: 3}
+  _completedSprite: {fileID: -8472049598239381741, guid: e431c647bcf49b747986324ddee3d553, type: 3}
 --- !u!1 &1624169553
 GameObject:
   m_ObjectHideFlags: 0
@@ -736,12 +789,12 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1754267484}
   - {fileID: 1619198338}
-  - {fileID: 1952643863}
-  - {fileID: 1649971033}
   - {fileID: 548738621}
+  - {fileID: 1649971033}
   - {fileID: 2055065883}
+  - {fileID: 1754267484}
+  - {fileID: 1952643863}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1649971032
@@ -754,6 +807,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1649971033}
   - component: {fileID: 1649971034}
+  - component: {fileID: 1649971036}
   - component: {fileID: 1649971035}
   m_Layer: 0
   m_Name: Matcha
@@ -881,6 +935,23 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 17.67, y: 11.1}
   m_EdgeRadius: 0
+--- !u!114 &1649971036
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1649971032}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36a5e0a1245f7d64eb65cf9444a1ba87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DraggableObject
+  _step: 2
+  target: {fileID: 2055065882}
+  _dropAlignDistance: 1
+  _interactedSprite: {fileID: 1582390639405405420, guid: a3f0e4c05a7ffc0479a702616b27887b, type: 3}
+  _completedSprite: {fileID: 1582390639405405420, guid: a3f0e4c05a7ffc0479a702616b27887b, type: 3}
 --- !u!1 &1754267483
 GameObject:
   m_ObjectHideFlags: 0
@@ -891,6 +962,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1754267484}
   - component: {fileID: 1754267485}
+  - component: {fileID: 1754267487}
   - component: {fileID: 1754267486}
   m_Layer: 0
   m_Name: Whisk
@@ -1009,6 +1081,23 @@ CapsuleCollider2D:
   m_Offset: {x: 0.0000038146973, y: 0}
   m_Size: {x: 8.63, y: 17.65}
   m_Direction: 0
+--- !u!114 &1754267487
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1754267483}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36a5e0a1245f7d64eb65cf9444a1ba87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DraggableObject
+  _step: 5
+  target: {fileID: 1952643862}
+  _dropAlignDistance: 1
+  _interactedSprite: {fileID: 8366970848145841662, guid: 49b69809cd7150b418cf25e9675731a6, type: 3}
+  _completedSprite: {fileID: 8366970848145841662, guid: 49b69809cd7150b418cf25e9675731a6, type: 3}
 --- !u!1 &1952643862
 GameObject:
   m_ObjectHideFlags: 0
@@ -1019,6 +1108,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1952643863}
   - component: {fileID: 1952643864}
+  - component: {fileID: 1952643866}
   - component: {fileID: 1952643865}
   m_Layer: 0
   m_Name: Bowl
@@ -1146,6 +1236,22 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 17.3, y: 13.84}
   m_EdgeRadius: 0
+--- !u!114 &1952643866
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1952643862}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50363dd98b4f03544a2ff5c9e7397446, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ClickableObject
+  _step: 6
+  _interactDuration: 5
+  _interactedSprite: {fileID: -271345291410955417, guid: f0f7b8127a33faf43963269c7c7f293d, type: 3}
+  _completedSprite: {fileID: -271345291410955417, guid: f0f7b8127a33faf43963269c7c7f293d, type: 3}
 --- !u!1 &1974239538
 GameObject:
   m_ObjectHideFlags: 0
@@ -1372,6 +1478,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2055065883}
   - component: {fileID: 2055065884}
+  - component: {fileID: 2055065886}
   - component: {fileID: 2055065885}
   m_Layer: 0
   m_Name: Sieve
@@ -1499,6 +1606,23 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 17.75, y: 17.5}
   m_EdgeRadius: 0
+--- !u!114 &2055065886
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2055065882}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36a5e0a1245f7d64eb65cf9444a1ba87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DraggableObject
+  _step: 3
+  target: {fileID: 1952643862}
+  _dropAlignDistance: 1
+  _interactedSprite: {fileID: -1061421649167371680, guid: ff0411fb04f885c4f99af9d03862e627, type: 3}
+  _completedSprite: {fileID: -1061421649167371680, guid: ff0411fb04f885c4f99af9d03862e627, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

@@ -4,6 +4,8 @@ using System.Collections;
 
 public class ClickableObject : MonoBehaviour, IInteractable
 {
+    [SerializeField]
+    private int _step;
     private InteractionState _interactionState = InteractionState.Idle;
     [SerializeField]
     private float _interactDuration = 5f;
@@ -11,13 +13,15 @@ public class ClickableObject : MonoBehaviour, IInteractable
     private Sprite _interactedSprite;
     [SerializeField]
     private Sprite _completedSprite;
-    private SpriteRenderer _renderer;    
+    private SpriteRenderer _renderer;
+    private GameplayController _gameplayController;
 
     public bool EnableInteractionForCurrentStep()
     {
         if (_interactionState == InteractionState.Idle)
         {
             _interactionState = InteractionState.Ready;
+            Debug.Log($"Enabled interaction for step {_step}");
             return true;
         }
         return false;
@@ -26,6 +30,7 @@ public class ClickableObject : MonoBehaviour, IInteractable
     private void Awake()
     {
         _renderer = GetComponent<SpriteRenderer>();
+        _gameplayController = FindFirstObjectByType<GameplayController>();
     }
 
     public bool CanInteract()
@@ -35,8 +40,8 @@ public class ClickableObject : MonoBehaviour, IInteractable
 
     public bool Interact()
     {
-        // todo: uncomment when the gameplay verfication is implementeds
-        // if (!CanInteract()) return false;
+        Debug.Log($"Attempted interaction on object for step {_step} with interaction state {_interactionState}");
+        if (_interactionState != InteractionState.Ready) return false;
         _interactionState = InteractionState.Interacting;
         AnimateInteraction();
         StartCoroutine(InteractionRoutine());
@@ -49,6 +54,7 @@ public class ClickableObject : MonoBehaviour, IInteractable
 
         AnimateCompleted();
         _interactionState = InteractionState.Completed;
+        _gameplayController?.OnInteractionCompleted(this);
     }
 
     private void AnimateInteraction()
@@ -59,5 +65,15 @@ public class ClickableObject : MonoBehaviour, IInteractable
     private void AnimateCompleted()
     {
         _renderer.sprite = _completedSprite;
+    }
+
+    public int GetStep()
+    {
+        return _step;
+    }
+
+    public InteractionMode GetInteractionMode()
+    {
+        return InteractionMode.Click;;
     }
 }
