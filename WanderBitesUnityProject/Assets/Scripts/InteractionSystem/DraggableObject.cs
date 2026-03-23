@@ -5,6 +5,14 @@ Inspired by: https://www.youtube.com/watch?v=izag_ZHwOtM
 */
 public class DraggableObject : MonoBehaviour, IInteractable
 {
+    [SerializeField]
+    private int _step;
+
+    [SerializeField]
+    private GameObject target;
+    
+    [SerializeField]
+    private float _dropAlignDistance = 1f;
     private bool isDragging = false;
     private Vector3 offset;
     private Vector3 originalPosition;
@@ -14,12 +22,15 @@ public class DraggableObject : MonoBehaviour, IInteractable
     [SerializeField]
     private Sprite _completedSprite;
     private SpriteRenderer _renderer;
+    private GameplayController _gameplayController;
+    private Collider2D _targetCollider;
 
     public bool EnableInteractionForCurrentStep()
     {
         if (_interactionState == InteractionState.Idle)
         {
             _interactionState = InteractionState.Ready;
+            Debug.Log($"Enabled interaction for step {_step}");
             return true;
         }
         return false;
@@ -33,6 +44,9 @@ public class DraggableObject : MonoBehaviour, IInteractable
     private void Awake()
     {
         _renderer = GetComponent<SpriteRenderer>();
+        _gameplayController = FindFirstObjectByType<GameplayController>();
+        if (target != null)
+            _targetCollider = target.GetComponent<Collider2D>();
     }
 
     private void Start()
@@ -46,13 +60,16 @@ public class DraggableObject : MonoBehaviour, IInteractable
         if (isDragging)
         {
             transform.position = Camera.main.ScreenToWorldPoint(Input.mousePosition) + offset;
+            if (_targetCollider != null)
+            {
+                Debug.Log(Vector2.Distance(transform.position, _targetCollider.bounds.center));
+            }
         }
     }
 
     private void OnMouseDown()
     {
-        // todo: uncomment when the gameplay verfication is implementeds
-        // if (_interactionState != InteractionState.Ready) return;
+        if (_interactionState != InteractionState.Ready) return;
         _interactionState = InteractionState.Interacting;
         _renderer.sprite = _interactedSprite;
         // Remember the offset between the object's center and the click position
@@ -62,9 +79,27 @@ public class DraggableObject : MonoBehaviour, IInteractable
 
     private void OnMouseUp()
     {
-        // todo: check if object is at the correct position aka where the other object is that it is meant to interact with
+        if (!isDragging) return;
+
         isDragging = false;
-        // Reset to original position when released
+
+        if (target != null && _targetCollider != null && Vector2.Distance(transform.position, _targetCollider.bounds.center) <= _dropAlignDistance)
+        {
+            _renderer.sprite = _completedSprite;
+            _interactionState = InteractionState.Completed;
+            _gameplayController?.OnInteractionCompleted(this);
+        }
+
         transform.position = originalPosition;
+    }
+
+    public int GetStep()
+    {
+        return _step;
+    }
+
+    public InteractionMode GetInteractionMode()
+    {
+        return InteractionMode.Drag;
     }
 }
