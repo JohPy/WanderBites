@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine.InputSystem.Utilities;
 
 public class GameplayController : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class GameplayController : MonoBehaviour
     // Assign in Inspector
     [SerializeField]
     public GameObject parentOfSceneObjects;
+    public GUIController guiController;
 
     private Dictionary<int, IInteractable> objectMap;
 
@@ -19,6 +21,15 @@ public class GameplayController : MonoBehaviour
     {
         LoadRecipe();
         BuildObjectMap();
+
+        if (guiController != null)
+        {
+            guiController.InitializeGUI(recipe);
+        }
+        else
+        {
+            Debug.LogError("GUIController not assigned!");
+        }
     }
 
     void Start()
@@ -55,6 +66,8 @@ public class GameplayController : MonoBehaviour
     public void CompleteStep()
     {
         activeStepIndex++;
+
+        guiController.OnUpdate(activeStepIndex); // Notify GUI of step change
 
         if (activeStepIndex >= recipe.steps.Count)
         {

@@ -1,0 +1,125 @@
+using UnityEngine;
+using TMPro;
+using JetBrains.Annotations;
+using UnityEngine.UI;
+using Unity.VisualScripting;
+
+public class GUIController : MonoBehaviour
+{
+    public GameObject recipeListBackground; // Parent GameObject for the recipe steps
+    public GameObject recipeStepPrefab; // TextMeshPro prefab for each recipe step
+    public Sprite recipeBackgroundTiny;
+    public Sprite recipeBackgroundShort;
+    public Sprite recipeBackgroundMedium;
+    public Sprite recipeBackgroundLong;
+    public Sprite recipeBackgroundExtraLong;
+    public Sprite recipeBackgroundLongest;
+
+    public Canvas endscreenCanvas;
+
+    private RecipeData recipe;
+    private int activeStepIndex = 0;
+
+    public void InitializeGUI(RecipeData recipeData)
+    {
+        endscreenCanvas.gameObject.SetActive(false);
+        recipe = recipeData;
+        PopulateRecipeGUI();
+        FormatActiveStep(activeStepIndex);
+    }
+
+    public void OnUpdate(int newActiveStepIndex)
+    {
+        if (newActiveStepIndex >= recipe.steps.Count)
+        {
+            Debug.Log("Recipe Complete");
+            TriggerEndscreen();
+            return;
+        } else if (newActiveStepIndex != activeStepIndex)
+        {
+            FormatCompletedStep(activeStepIndex);
+            FormatActiveStep(newActiveStepIndex);
+            activeStepIndex = newActiveStepIndex;
+        }
+    }
+
+    void PopulateRecipeGUI()
+    {
+         foreach (Transform child in recipeListBackground.transform)
+        {
+            GameObject.Destroy(child.gameObject);
+        }
+
+        // Currently max supported steps = 25
+
+        if (recipe.steps.Count > 21)
+        {
+            recipeListBackground.GetComponent<RawImage>().texture = recipeBackgroundLongest.texture;
+            recipeListBackground.GetComponent<RawImage>().SetNativeSize();
+        } else if (recipe.steps.Count > 18)
+        {
+            recipeListBackground.GetComponent<RawImage>().texture = recipeBackgroundExtraLong.texture;
+            recipeListBackground.GetComponent<RawImage>().SetNativeSize();
+        } else if (recipe.steps.Count > 15)
+        {
+            recipeListBackground.GetComponent<RawImage>().texture = recipeBackgroundLong.texture;
+            recipeListBackground.GetComponent<RawImage>().SetNativeSize();
+        } else if (recipe.steps.Count > 12)
+        {
+            recipeListBackground.GetComponent<RawImage>().texture = recipeBackgroundMedium.texture;
+            recipeListBackground.GetComponent<RawImage>().SetNativeSize();
+
+        } else if (recipe.steps.Count > 9)
+        {
+            recipeListBackground.GetComponent<RawImage>().texture = recipeBackgroundShort.texture;
+            recipeListBackground.GetComponent<RawImage>().SetNativeSize();
+        } else if (recipe.steps.Count <= 8)
+        {
+            recipeListBackground.GetComponent<RawImage>().texture = recipeBackgroundTiny.texture;
+            recipeListBackground.GetComponent<RawImage>().SetNativeSize();
+        }
+
+        GameObject recipeTitle = Instantiate(recipeStepPrefab, recipeListBackground.transform);
+        TextMeshProUGUI titleText = recipeTitle.GetComponent<TextMeshProUGUI>();
+        titleText.text = "Recipe Steps:";
+        titleText.fontStyle = FontStyles.Underline;
+        titleText.fontSize = 26;
+        titleText.rectTransform.sizeDelta = new Vector2(titleText.rectTransform.sizeDelta.x, titleText.rectTransform.sizeDelta.y + 8);
+
+        foreach (RecipeStep step in recipe.steps)
+        {
+            GameObject stepText = Instantiate(recipeStepPrefab, recipeListBackground.transform);
+
+            TextMeshProUGUI text = stepText.GetComponent<TextMeshProUGUI>();
+            text.text = step.uiText;
+        }
+    }
+
+    void FormatActiveStep(int stepIndex)
+    {
+        Transform stepText = recipeListBackground.transform.GetChild(stepIndex);
+        stepText.gameObject.GetComponent<TextMeshProUGUI>().fontStyle = FontStyles.Bold;
+        stepText.gameObject.GetComponent<TextMeshProUGUI>().color = Color.blueViolet;
+    }
+
+    void FormatCompletedStep(int stepIndex)
+    {
+        if (stepIndex == 0) return; // Skip formatting for title
+
+        Transform stepText = recipeListBackground.transform.GetChild(stepIndex);
+        stepText.gameObject.GetComponent<TextMeshProUGUI>().fontStyle = FontStyles.Normal;
+        stepText.gameObject.GetComponent<TextMeshProUGUI>().color = Color.grey;
+        stepText.gameObject.GetComponent<TextMeshProUGUI>().fontStyle = FontStyles.Strikethrough;
+    }
+
+    void TriggerEndscreen()
+    {
+        endscreenCanvas.gameObject.SetActive(true);
+    }
+
+    /* void Update()
+    {
+        FormatActiveStep(2);
+        FormatCompletedStep(1);
+    } */
+}
