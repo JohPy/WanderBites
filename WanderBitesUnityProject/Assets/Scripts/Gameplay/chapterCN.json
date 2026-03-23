@@ -1,0 +1,115 @@
+{
+	"chapterId" : "CN",
+	"activeStep" : 0,
+	"steps" : [
+	{
+		"id" : 0,
+		"action" : "click",
+		"target" : "garlic bulb",
+		"uiText" : "Peel Garlic"
+	},
+	{
+		"id" : 1,
+		"action" : "drag",
+		"source" : "knife",
+		"target" : "garlic bulb",
+		"uiText" : "Chop Garlic Cloves"
+	},
+	{
+		"id" : 2,
+		"action" : "drag",
+		"source" : "honey",
+		"target" : "bowl",
+		"uiText" : "Add Honey"
+	},
+	{
+		"id" : 3,
+		"action" : "drag",
+		"source" : "salt",
+		"target" : "bowl",
+		"uiText" : "Add Salt"
+	},
+	{
+		"id" : 4,
+		"action" : "drag",
+		"source" : "sesame oil",
+		"target" : "bowl",
+		"uiText" : "Add Sesame Oil"
+	},
+	{
+		"id" : 5,
+		"action" : "drag",
+		"source" : "rice wine",
+		"target" : "bowl",
+		"uiText" : "Add Rice Wine"
+	},
+	{
+		"id" : 6,
+		"action" : "drag",
+		"source" : "garlic",
+		"target" : "bowl",
+		"uiText" : "Add Garlic"
+	},
+	{
+		"id" : 7,
+		"action" : "drag",
+		"source" : "oyster sauce",
+		"target" : "bowl",
+		"uiText" : "Add Oyster Sauce"
+	},
+	{
+		"id" : 8,
+		"action" : "drag",
+		"source" : "hoisin sauce",
+		"target" : "bowl",
+		"uiText" : "Add Hoisin Sauce"
+	},
+	{
+		"id" : 9,
+		"action" : "drag",
+		"source" : "spices",
+		"target" : "bowl",
+		"uiText" : "Add Spices"
+	},
+	{
+		"id" : 10,
+		"action" : "drag",
+		"target" : "bowl",
+		"tool" : "spoon",
+		"uiText" : "Stirr Sauce"
+	},
+	{
+		"id" : 11,
+		"action" : "drag",
+		"source" : "pork",
+		"target" : "bowl",
+		"uiText" : "Marinate Pork"
+	},
+	{
+		"id" : 12,
+		"action" : "click",
+		"target" : "bowl",
+		"uiText" : "Remove Pork"
+	},
+	{
+		"id" : 13,
+		"action" : "drag",
+		"source" : "prok",
+		"target" : "oven",
+		"uiText" : "Bake Pork"
+	},
+	{
+		"id" : 14,
+		"action" : "drag",
+		"source" : "oven",
+		"target" : "plate",
+		"uiText" : "Take out Pork"
+	},
+	{
+		"id" : 15,
+		"action" : "click",
+		"target" : "Plate",
+		"uiText" : "Enjoy"
+	}
+	]
+}
