@@ -4,18 +4,24 @@ using UnityEngine.InputSystem.Utilities;
 
 public class GameplayController : MonoBehaviour
 {
-    [SerializeField]
-    public TextAsset recipeJson;
-
     private RecipeData recipe;
+
+    private Dictionary<int, IInteractable> objectMap;
+
     private int activeStepIndex = 0;
 
     // Assign in Inspector
     [SerializeField]
+    public TextAsset recipeJson;
+    
+    [SerializeField]
     public GameObject parentOfSceneObjects;
+
+    [SerializeField]
     public GUIController guiController;
 
-    private Dictionary<int, IInteractable> objectMap;
+    [SerializeField]
+    public AudioPlayer audioPlayer;
 
     void Awake()
     {
@@ -34,6 +40,7 @@ public class GameplayController : MonoBehaviour
 
     void Start()
     {
+        audioPlayer.playSound();
         if (objectMap.TryGetValue(0, out var interactable))
         {
             interactable.EnableInteractionForCurrentStep();
