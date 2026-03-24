@@ -1,53 +1,56 @@
 {
-    "chapterId" : "JP",
-    "activeStep" : 0,
+    "chapterId": "JP",
+    "activeStep": 0,
+    "isCompleted": false,
     "steps": [
-    {
-      "id": 0,
-      "action": "click",
-      "source": "kettle",
-      "uiText": "Heat Water"
-    },
-    {
-      "id": 1,
-      "action": "drag",
-      "source": "scoop",
-      "target": "matcha",
-      "uiText": "Scoop up Matcha"
-    },
-    {
-      "id": 2,
-      "action": "drag",
-      "source": "scoop",
-      "target": "sieve",
-      "uiText": "Sift Matcha"
-    },
-    {
-      "id": 3,
-      "action": "drag",
-      "source": "sieve",
-      "target": "bowl",
-      "uiText": "Add Matcha to Bowl"
-    },
-    {
-      "id": 4,
-      "action": "drag",
-      "source": "kettle",
-      "target": "bowl",      
-      "uiText": "Add Water to Bowl"
-    },
-    {
-      "id": 5,
-      "action": "drag",
-      "source": "whisk",
-      "target": "bowl",
-      "uiText": "Whisk"
-    },
-    {
-      "id": 6,
-      "action": "click",
-      "source": "bowl",
-      "uiText": "Enjoy"
-    }
-  ]
+        {
+            "id": 0,
+            "action": "click",
+            "target": "",
+            "source": "kettle",
+            "uiText": "Heat Water"
+        },
+        {
+            "id": 1,
+            "action": "drag",
+            "target": "matcha",
+            "source": "scoop",
+            "uiText": "Scoop up Matcha"
+        },
+        {
+            "id": 2,
+            "action": "drag",
+            "target": "sieve",
+            "source": "scoop",
+            "uiText": "Sift Matcha"
+        },
+        {
+            "id": 3,
+            "action": "drag",
+            "target": "bowl",
+            "source": "sieve",
+            "uiText": "Add Matcha to Bowl"
+        },
+        {
+            "id": 4,
+            "action": "drag",
+            "target": "bowl",
+            "source": "kettle",
+            "uiText": "Add Water to Bowl"
+        },
+        {
+            "id": 5,
+            "action": "drag",
+            "target": "bowl",
+            "source": "whisk",
+            "uiText": "Whisk"
+        },
+        {
+            "id": 6,
+            "action": "click",
+            "target": "",
+            "source": "bowl",
+            "uiText": "Enjoy"
+        }
+    ]
 }

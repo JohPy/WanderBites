@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 using UnityEngine.InputSystem.Utilities;
+using UnityEditor;
 
 public class GameplayController : MonoBehaviour
 {
@@ -8,7 +9,6 @@ public class GameplayController : MonoBehaviour
     public TextAsset recipeJson;
 
     private RecipeData recipe;
-    private int activeStepIndex = 0;
 
     // Assign in Inspector
     [SerializeField]
@@ -34,7 +34,7 @@ public class GameplayController : MonoBehaviour
 
     void Start()
     {
-        if (objectMap.TryGetValue(0, out var interactable))
+        if (objectMap.TryGetValue(recipe.activeStep, out var interactable))
         {
             interactable.EnableInteractionForCurrentStep();
         }
@@ -42,7 +42,24 @@ public class GameplayController : MonoBehaviour
 
     void LoadRecipe()
     {
-        recipe = JsonUtility.FromJson<RecipeData>(recipeJson.text);
+        string path = AssetDatabase.GetAssetPath(recipeJson);
+        if (string.IsNullOrEmpty(path))
+        {
+            Debug.LogError("Recipe JSON file not found at path: " + path);
+            return;
+        }
+        recipe = PersistenceUtil.LoadRecipe(path);
+    }
+
+    void SaveRecipe()
+    {
+        string path = AssetDatabase.GetAssetPath(recipeJson);
+        if (string.IsNullOrEmpty(path))
+        {
+            Debug.LogError("Recipe JSON file not found at path: " + path);
+            return;
+        }
+        PersistenceUtil.SaveRecipe(recipe, path);
     }
 
     void BuildObjectMap()
@@ -60,22 +77,25 @@ public class GameplayController : MonoBehaviour
 
     public RecipeStep GetCurrentStep()
     {
-        return recipe.steps[activeStepIndex];
+        return recipe.steps[recipe.activeStep];
     }
 
     public void CompleteStep()
     {
-        activeStepIndex++;
+        recipe.activeStep++;
+        SaveRecipe();
 
-        guiController.OnUpdate(activeStepIndex); // Notify GUI of step change
+        guiController.OnUpdate(); // Notify GUI of step change
 
-        if (activeStepIndex >= recipe.steps.Count)
+        if (recipe.activeStep >= recipe.steps.Count)
         {
+            recipe.isCompleted = true;
+            SaveRecipe();
             Debug.Log("Recipe Complete");
             return;
         }
 
-        if (objectMap.TryGetValue(activeStepIndex, out var nextInteractable))
+        if (objectMap.TryGetValue(recipe.activeStep, out var nextInteractable))
         {
             nextInteractable.EnableInteractionForCurrentStep();
         }

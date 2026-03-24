@@ -1,6 +1,7 @@
 {
 	"chapterId" : "CN",
 	"activeStep" : 0,
+	"isCompleted" : false,
 	"steps" : [
 	{
 		"id" : 0,

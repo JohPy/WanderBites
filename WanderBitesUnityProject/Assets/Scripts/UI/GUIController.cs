@@ -19,7 +19,6 @@ public class GUIController : MonoBehaviour
     public Canvas endscreenCanvas;
 
     private RecipeData recipe;
-    private int activeStepIndex = 0;
 
     public void InitializeGUI(RecipeData recipeData)
     {
@@ -34,19 +33,22 @@ public class GUIController : MonoBehaviour
     {
         yield return null; // wait one frame to ensure all UI elements are instantiated
 
-        FormatActiveStep(activeStepIndex);
+        FormatActiveStep(recipe.activeStep);
+        for (int i = 0; i < recipe.activeStep; i++)
+        {
+            FormatCompletedStep(i);
+        }
     }
 
-    public void OnUpdate(int newActiveStepIndex)
+    public void OnUpdate()
     {
-        if (newActiveStepIndex >= recipe.steps.Count)
+        if (recipe.activeStep >= recipe.steps.Count)
         {
             TriggerEndscreen();
-        } else if (newActiveStepIndex != activeStepIndex)
+        } else
         {
-            FormatCompletedStep(activeStepIndex);
-            FormatActiveStep(newActiveStepIndex);
-            activeStepIndex = newActiveStepIndex;
+            FormatCompletedStep(recipe.activeStep-1);
+            FormatActiveStep(recipe.activeStep);
         }
     }
 
