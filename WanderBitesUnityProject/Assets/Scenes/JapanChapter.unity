@@ -278,6 +278,7 @@ GameObject:
   - component: {fileID: 548738621}
   - component: {fileID: 548738622}
   - component: {fileID: 548738624}
+  - component: {fileID: 548738625}
   - component: {fileID: 548738623}
   m_Layer: 0
   m_Name: Scoop
@@ -419,6 +420,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DraggableObject
   _step: 1
   target: {fileID: 1649971032}
+  _dropAlignDistance: 1.3
+  _interactedSprite: {fileID: -1665114016725892720, guid: 8403fa3b694bb1d489386b3fe9009c3d, type: 3}
+  _completedSprite: {fileID: -1665114016725892720, guid: 8403fa3b694bb1d489386b3fe9009c3d, type: 3}
+--- !u!114 &548738625
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 548738620}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36a5e0a1245f7d64eb65cf9444a1ba87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DraggableObject
+  _step: 2
+  target: {fileID: 2055065882}
   _dropAlignDistance: 1
   _interactedSprite: {fileID: -1665114016725892720, guid: 8403fa3b694bb1d489386b3fe9009c3d, type: 3}
   _completedSprite: {fileID: -1665114016725892720, guid: 8403fa3b694bb1d489386b3fe9009c3d, type: 3}
@@ -652,7 +670,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1649971033}
   - component: {fileID: 1649971034}
-  - component: {fileID: 1649971036}
   - component: {fileID: 1649971035}
   m_Layer: 0
   m_Name: Matcha
@@ -780,23 +797,6 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 17.67, y: 11.1}
   m_EdgeRadius: 0
---- !u!114 &1649971036
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1649971032}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 36a5e0a1245f7d64eb65cf9444a1ba87, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::DraggableObject
-  _step: 2
-  target: {fileID: 2055065882}
-  _dropAlignDistance: 1
-  _interactedSprite: {fileID: 1582390639405405420, guid: a3f0e4c05a7ffc0479a702616b27887b, type: 3}
-  _completedSprite: {fileID: 1582390639405405420, guid: a3f0e4c05a7ffc0479a702616b27887b, type: 3}
 --- !u!1 &1754267483
 GameObject:
   m_ObjectHideFlags: 0
