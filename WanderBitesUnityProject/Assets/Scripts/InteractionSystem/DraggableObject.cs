@@ -89,6 +89,10 @@ public class DraggableObject : MonoBehaviour, IInteractable
             _interactionState = InteractionState.Completed;
             _gameplayController?.OnInteractionCompleted(this);
         }
+        else
+        {
+            _interactionState = InteractionState.Ready; // Allow retrying
+        }
 
         transform.position = originalPosition;
     }

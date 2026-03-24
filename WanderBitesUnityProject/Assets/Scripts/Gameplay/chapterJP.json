@@ -13,28 +13,28 @@
       "action": "drag",
       "source": "scoop",
       "target": "matcha",
-      "uiText": "Add Matcha"
+      "uiText": "Scoop up Matcha"
     },
     {
       "id": 2,
       "action": "drag",
-      "source": "matcha",
+      "source": "scoop",
       "target": "sieve",
-      "uiText": "Add Matcha"
+      "uiText": "Sift Matcha"
     },
     {
       "id": 3,
       "action": "drag",
       "source": "sieve",
       "target": "bowl",
-      "uiText": "Add Matcha"
+      "uiText": "Add Matcha to Bowl"
     },
     {
       "id": 4,
       "action": "drag",
       "source": "kettle",
       "target": "bowl",      
-      "uiText": "Add Water"
+      "uiText": "Add Water to Bowl"
     },
     {
       "id": 5,
