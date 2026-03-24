@@ -891,6 +891,44 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5161252224177088271, guid: 7a53e018a2b8e20429a1f1009981aebd, type: 3}
+      propertyPath: m_text
+      value: "<u>Here's the full recipe for you to screenshot:</u>\n\n<b>Step 1</b>\r\nStart
+        by preparing your utensils. You will need a matcha bowl (Chawan), a bamboo
+        whisk (Chasen), a bamboo scoop (Chashaku) or alternatively a teaspoon, a
+        fine mesh sieve, matcha powder, and a kettle. A thermometer can be useful
+        as well, though it is optional.\r\n<b>Step 2</b>\r\nBoil fresh water in the
+        kettle. Then, let the boiled water cool for about 5-10 minutes to reach a
+        temperature of approximately 75-85\xB0C. For particularly high-quality matcha,
+        the water temperature can also be around 70\xB0C.\r\n<b>Step 3</b>\r\nNow
+        measure 1-2 bamboo scoops (Chashaku) or about 1/2 teaspoon of matcha powder
+        and place it in a fine mesh sieve. Hold the sieve over the matcha bowl and
+        use a spoon or spatula to sift the powder through the sieve to remove any
+        potential lumps.\r\n<b>Step 4</b>\r\nPour about 60 ml of the cooled water
+        into the matcha bowl over the sifted matcha powder. Briefly dip the bamboo
+        whisk in warm water to moisten and soften the bristles. Hold the matcha bowl
+        with one hand and whisk the matcha powder and water with the bamboo whisk
+        in quick, even motions. Use a zigzag (W) motion to achieve a smooth, lump-free
+        mixture.\r\n<b>Step 5</b>\r\nFill the bowl with the remaining water (about
+        60-90 ml, depending on the desired strength). Then, vigorously whisk the
+        matcha with the bamboo whisk in a W motion to create a frothy surface. Make
+        sure the whisk does not touch the bottom of the bowl to avoid damaging the
+        bristles.\r\n<b>Step 6</b>\r\nThe matcha is now ready and should be enjoyed
+        immediately, as the froth will quickly dissipate and the tea will lose its
+        optimal temperature.\r\n"
+      objectReference: {fileID: 0}
+    - target: {fileID: 5161252224177088271, guid: 7a53e018a2b8e20429a1f1009981aebd, type: 3}
+      propertyPath: m_fontSize
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 5161252224177088271, guid: 7a53e018a2b8e20429a1f1009981aebd, type: 3}
+      propertyPath: m_fontStyle
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5161252224177088271, guid: 7a53e018a2b8e20429a1f1009981aebd, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 16
+      objectReference: {fileID: 0}
     - target: {fileID: 6491065072526864659, guid: 7a53e018a2b8e20429a1f1009981aebd, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
